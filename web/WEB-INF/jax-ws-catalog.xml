@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/_diegofernandobarrios_17122017_webservice/WSUser?WSDL" uri="wsdl/localhost_8080/_diegofernandobarrios_17122017_webservice/WSUser.wsdl"/>
+    <system systemId="http://localhost:8080/_diegofernandobarrios_17122017_webservice/WSUser?xsd=1" uri="wsdl/localhost_8080/_diegofernandobarrios_17122017_webservice/WSUser.xsd_1.xsd"/>
+</catalog>
