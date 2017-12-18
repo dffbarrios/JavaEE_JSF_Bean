@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence&gt;
  *         &lt;element name="currentUser" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="currentPass" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="idUser" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="username" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="lastname" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="password" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
@@ -34,7 +34,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "updateUser", propOrder = {
     "currentUser",
     "currentPass",
-    "idUser",
+    "username",
     "name",
     "lastname",
     "password"
@@ -43,7 +43,7 @@ public class UpdateUser {
 
     protected String currentUser;
     protected String currentPass;
-    protected int idUser;
+    protected String username;
     protected String name;
     protected String lastname;
     protected String password;
@@ -97,19 +97,27 @@ public class UpdateUser {
     }
 
     /**
-     * Obtiene el valor de la propiedad idUser.
+     * Obtiene el valor de la propiedad username.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getIdUser() {
-        return idUser;
+    public String getUsername() {
+        return username;
     }
 
     /**
-     * Define el valor de la propiedad idUser.
+     * Define el valor de la propiedad username.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setIdUser(int value) {
-        this.idUser = value;
+    public void setUsername(String value) {
+        this.username = value;
     }
 
     /**

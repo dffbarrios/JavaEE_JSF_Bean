@@ -34,6 +34,17 @@ public class UserBeanController {
         return "messages";
     }
     
+    public String updateUSer(){
+        FacesContext context = FacesContext.getCurrentInstance();
+        String msg = updatingUser(
+                context.getExternalContext().getSessionMap().get("username").toString(),
+                context.getExternalContext().getSessionMap().get("password").toString(),
+                this.userBean.getUsrUsername(), this.userBean.getUsrName(),
+                this.userBean.getUsrLastname(), this.userBean.getUsrPassword());
+        this.message = msg;
+        return "messages";
+    }
+    
     public String deleteUser(){
         FacesContext context = FacesContext.getCurrentInstance();
         String msg = deletingUser(
@@ -52,6 +63,14 @@ public class UserBeanController {
         com.hitss.services.webservice.WSUser port = service.getWSUserPort();
         return port.insertUser(currentUser, currentPass, name, lastname, username, password, status);
     }
+    
+    private String updatingUser(
+            String currentUser, String currentPass,
+            String username, String name, String lastname, String password) {
+        com.hitss.services.webservice.WSUser port = service.getWSUserPort();
+        return port.updateUser(currentUser, currentPass, username, name, lastname, password);
+    }
+    
     
     private String deletingUser(String currentUser, String currentPass, String username) {
         com.hitss.services.webservice.WSUser port = service.getWSUserPort();

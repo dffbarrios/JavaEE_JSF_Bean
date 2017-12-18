@@ -1,12 +1,78 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
-        <title>Facelet Title</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="X-UA-Conpatible" content="IE=edge" />
+        <h:outputStylesheet library="css" name="bootstrap.css"></h:outputStylesheet>
+        <title>Hitss</title>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-6 col-md-offset-3">
+                    <h:form id="updateForm">
+                        <fieldset>
+                            <legend>Actualizar Datos de Usuario</legend>
+                            <p class="text-danger">
+                                * Escriba Username Usuario y los datos a modificar
+                            </p>
+                            <div class="form-group">
+                                <h:outputLabel for="username" 
+                                               value="#{label['updateForm.label.username']}" />
+                                <h:inputText id="username" class="form-control" required="true"
+                                             a:placeholder="#{label['updateForm.placeholder.username']}"
+                                             value="#{userBean.usrUsername}" />
+                                <h:message class="text-danger" for="username"/>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel for="name" 
+                                               value="#{label['updateForm.label.name']}" />
+                                <h:inputText id="name" class="form-control" required="true"
+                                             a:placeholder="#{label['updateForm.placeholder.name']}"
+                                             value="#{userBean.usrName}" />
+                                <h:message class="text-danger" for="name"/>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel for="lastname" 
+                                               value="#{label['updateForm.label.lastname']}" />
+                                <h:inputText id="lastname" class="form-control" required="true"
+                                             a:placeholder="#{label['updateForm.placeholder.lastname']}"
+                                             value="#{userBean.usrLastname}" />
+                                <h:message class="text-danger" for="lastname"/>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel for="password" 
+                                               value="#{label['updateForm.label.password']}" />
+                                <h:inputSecret id="password" class="form-control" required="true"
+                                             a:placeholder="#{label['updateForm.placeholder.password']}"
+                                             value="#{userBean.usrPassword}" />
+                                <h:message class="text-danger" for="password"/>
+                            </div>
+                            <div class="form-group">
+                                <h:commandButton
+                                    value="#{label['updateForm.label.update']}"
+                                    class="btn btn-primary" action="#{userBeanController.updateUSer}"/>
+                            </div>
+                        </fieldset>
+                    </h:form>
+                    <br/>
+                    <h:form rendered="#{sessionScope.loged}">
+                        <span class="text-danger">
+                           Selecciona una operación
+                        </span>
+                        <br/>
+                        <h:commandLink action="register-user">Registar Usuario</h:commandLink> | 
+                        <h:commandLink action="update-user">Actualizar Usuario</h:commandLink> |
+                        <h:commandLink action="delete-user">Eliminar Usuario</h:commandLink>   | 
+                        <h:commandLink action="#{loginBeanController.logoutAction}">Cerrar Sesion</h:commandLink> 
+                    </h:form>
+                </div>
+            </div>
+        </div>
     </h:body>
 </html>
 

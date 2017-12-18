@@ -4,12 +4,6 @@
 <xsd:import namespace="http://webservice.services.hitss.com/" schemaLocation="http://localhost:8080/_diegofernandobarrios_17122017_webservice/WSUser?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="listUser">
-<part name="parameters" element="tns:listUser"/>
-</message>
-<message name="listUserResponse">
-<part name="parameters" element="tns:listUserResponse"/>
-</message>
 <message name="checkCredentials">
 <part name="parameters" element="tns:checkCredentials"/>
 </message>
@@ -34,6 +28,12 @@
 <message name="listUsersResponse">
 <part name="parameters" element="tns:listUsersResponse"/>
 </message>
+<message name="listUser">
+<part name="parameters" element="tns:listUser"/>
+</message>
+<message name="listUserResponse">
+<part name="parameters" element="tns:listUserResponse"/>
+</message>
 <message name="updateUser">
 <part name="parameters" element="tns:updateUser"/>
 </message>
@@ -41,10 +41,6 @@
 <part name="parameters" element="tns:updateUserResponse"/>
 </message>
 <portType name="WSUser">
-<operation name="listUser">
-<input wsam:Action="http://webservice.services.hitss.com/WSUser/listUserRequest" message="tns:listUser"/>
-<output wsam:Action="http://webservice.services.hitss.com/WSUser/listUserResponse" message="tns:listUserResponse"/>
-</operation>
 <operation name="checkCredentials">
 <input wsam:Action="http://webservice.services.hitss.com/WSUser/checkCredentialsRequest" message="tns:checkCredentials"/>
 <output wsam:Action="http://webservice.services.hitss.com/WSUser/checkCredentialsResponse" message="tns:checkCredentialsResponse"/>
@@ -61,6 +57,10 @@
 <input wsam:Action="http://webservice.services.hitss.com/WSUser/listUsersRequest" message="tns:listUsers"/>
 <output wsam:Action="http://webservice.services.hitss.com/WSUser/listUsersResponse" message="tns:listUsersResponse"/>
 </operation>
+<operation name="listUser">
+<input wsam:Action="http://webservice.services.hitss.com/WSUser/listUserRequest" message="tns:listUser"/>
+<output wsam:Action="http://webservice.services.hitss.com/WSUser/listUserResponse" message="tns:listUserResponse"/>
+</operation>
 <operation name="updateUser">
 <input wsam:Action="http://webservice.services.hitss.com/WSUser/updateUserRequest" message="tns:updateUser"/>
 <output wsam:Action="http://webservice.services.hitss.com/WSUser/updateUserResponse" message="tns:updateUserResponse"/>
@@ -68,15 +68,6 @@
 </portType>
 <binding name="WSUserPortBinding" type="tns:WSUser">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="listUser">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
 <operation name="checkCredentials">
 <soap:operation soapAction=""/>
 <input>
@@ -105,6 +96,15 @@
 </output>
 </operation>
 <operation name="listUsers">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="listUser">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
