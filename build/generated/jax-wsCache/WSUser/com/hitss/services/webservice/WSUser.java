@@ -28,6 +28,45 @@ public interface WSUser {
     /**
      * 
      * @param currentUser
+     * @param currentPass
+     * @param username
+     * @return
+     *     returns java.util.List<com.hitss.services.webservice.User>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listUser", targetNamespace = "http://webservice.services.hitss.com/", className = "com.hitss.services.webservice.ListUser")
+    @ResponseWrapper(localName = "listUserResponse", targetNamespace = "http://webservice.services.hitss.com/", className = "com.hitss.services.webservice.ListUserResponse")
+    @Action(input = "http://webservice.services.hitss.com/WSUser/listUserRequest", output = "http://webservice.services.hitss.com/WSUser/listUserResponse")
+    public List<User> listUser(
+        @WebParam(name = "currentUser", targetNamespace = "")
+        String currentUser,
+        @WebParam(name = "currentPass", targetNamespace = "")
+        String currentPass,
+        @WebParam(name = "username", targetNamespace = "")
+        String username);
+
+    /**
+     * 
+     * @param password
+     * @param username
+     * @return
+     *     returns java.util.List<com.hitss.services.webservice.User>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "checkCredentials", targetNamespace = "http://webservice.services.hitss.com/", className = "com.hitss.services.webservice.CheckCredentials")
+    @ResponseWrapper(localName = "checkCredentialsResponse", targetNamespace = "http://webservice.services.hitss.com/", className = "com.hitss.services.webservice.CheckCredentialsResponse")
+    @Action(input = "http://webservice.services.hitss.com/WSUser/checkCredentialsRequest", output = "http://webservice.services.hitss.com/WSUser/checkCredentialsResponse")
+    public List<User> checkCredentials(
+        @WebParam(name = "username", targetNamespace = "")
+        String username,
+        @WebParam(name = "password", targetNamespace = "")
+        String password);
+
+    /**
+     * 
+     * @param currentUser
      * @param password
      * @param name
      * @param currentPass
@@ -60,27 +99,9 @@ public interface WSUser {
 
     /**
      * 
-     * @param password
-     * @param username
-     * @return
-     *     returns java.util.List<com.hitss.services.webservice.User>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "checkCredentials", targetNamespace = "http://webservice.services.hitss.com/", className = "com.hitss.services.webservice.CheckCredentials")
-    @ResponseWrapper(localName = "checkCredentialsResponse", targetNamespace = "http://webservice.services.hitss.com/", className = "com.hitss.services.webservice.CheckCredentialsResponse")
-    @Action(input = "http://webservice.services.hitss.com/WSUser/checkCredentialsRequest", output = "http://webservice.services.hitss.com/WSUser/checkCredentialsResponse")
-    public List<User> checkCredentials(
-        @WebParam(name = "username", targetNamespace = "")
-        String username,
-        @WebParam(name = "password", targetNamespace = "")
-        String password);
-
-    /**
-     * 
-     * @param idUser
      * @param currentUser
      * @param currentPass
+     * @param username
      * @return
      *     returns java.lang.String
      */
@@ -90,27 +111,6 @@ public interface WSUser {
     @ResponseWrapper(localName = "deleteUserResponse", targetNamespace = "http://webservice.services.hitss.com/", className = "com.hitss.services.webservice.DeleteUserResponse")
     @Action(input = "http://webservice.services.hitss.com/WSUser/deleteUserRequest", output = "http://webservice.services.hitss.com/WSUser/deleteUserResponse")
     public String deleteUser(
-        @WebParam(name = "currentUser", targetNamespace = "")
-        String currentUser,
-        @WebParam(name = "currentPass", targetNamespace = "")
-        String currentPass,
-        @WebParam(name = "idUser", targetNamespace = "")
-        int idUser);
-
-    /**
-     * 
-     * @param currentUser
-     * @param currentPass
-     * @param username
-     * @return
-     *     returns java.util.List<com.hitss.services.webservice.User>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listUser", targetNamespace = "http://webservice.services.hitss.com/", className = "com.hitss.services.webservice.ListUser")
-    @ResponseWrapper(localName = "listUserResponse", targetNamespace = "http://webservice.services.hitss.com/", className = "com.hitss.services.webservice.ListUserResponse")
-    @Action(input = "http://webservice.services.hitss.com/WSUser/listUserRequest", output = "http://webservice.services.hitss.com/WSUser/listUserResponse")
-    public List<User> listUser(
         @WebParam(name = "currentUser", targetNamespace = "")
         String currentUser,
         @WebParam(name = "currentPass", targetNamespace = "")

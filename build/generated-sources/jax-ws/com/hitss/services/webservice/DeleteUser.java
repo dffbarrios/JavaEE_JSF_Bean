@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence&gt;
  *         &lt;element name="currentUser" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="currentPass" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="idUser" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="username" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -31,13 +31,13 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "deleteUser", propOrder = {
     "currentUser",
     "currentPass",
-    "idUser"
+    "username"
 })
 public class DeleteUser {
 
     protected String currentUser;
     protected String currentPass;
-    protected int idUser;
+    protected String username;
 
     /**
      * Obtiene el valor de la propiedad currentUser.
@@ -88,19 +88,27 @@ public class DeleteUser {
     }
 
     /**
-     * Obtiene el valor de la propiedad idUser.
+     * Obtiene el valor de la propiedad username.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getIdUser() {
-        return idUser;
+    public String getUsername() {
+        return username;
     }
 
     /**
-     * Define el valor de la propiedad idUser.
+     * Define el valor de la propiedad username.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setIdUser(int value) {
-        this.idUser = value;
+    public void setUsername(String value) {
+        this.username = value;
     }
 
 }

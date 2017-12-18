@@ -67,7 +67,7 @@
 <xs:sequence>
 <xs:element name="currentUser" type="xs:string" minOccurs="0"/>
 <xs:element name="currentPass" type="xs:string" minOccurs="0"/>
-<xs:element name="idUser" type="xs:int"/>
+<xs:element name="username" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 

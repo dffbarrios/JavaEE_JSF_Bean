@@ -2,7 +2,6 @@ package com.hitss.beans.backing;
 import com.hitss.beans.model.LoginBean;
 import com.hitss.services.webservice.WSUser_Service;
 import java.io.Serializable;
-import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -28,7 +27,9 @@ public class LoginBeanController
             this.loginBean.getUsername(),
             this.loginBean.getPassword()).isEmpty()){
             FacesContext context = FacesContext.getCurrentInstance();
-            context.getExternalContext().getSessionMap().put("user",  this.loginBean.getUsername());
+            context.getExternalContext().getSessionMap().put("username",  this.loginBean.getUsername());
+            context.getExternalContext().getSessionMap().put("password",  this.loginBean.getPassword());
+            context.getExternalContext().getSessionMap().put("loged", true);
             this.loginBean.setLoged(true);
             return "register-user";
        }else{

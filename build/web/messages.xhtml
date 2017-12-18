@@ -10,20 +10,21 @@
         <title>Hitss</title>
     </h:head>
     <h:body>   
-        <h:form rendered="#{not empty loginBeanController.message}">
+        <h:form rendered="#{!sessionScope.loged and not empty loginBeanController.message }">
            <span class="text-danger">
                Message: #{loginBeanController.message}
            </span>
         <br/><br/>
         <h:commandLink action="index">Regresar</h:commandLink>
        </h:form>
-        <h:form rendered="#{not empty userBeanController.message}">
+        <h:form rendered="#{sessionScope.loged and not empty userBeanController.message}">
             <span class="text-danger">
                Message: #{userBeanController.message}
            </span>
-            <h:commandLink action="register-user">Registar Usuario</h:commandLink> 
-            <h:commandLink action="index">Actualizar Usuario</h:commandLink> 
-            <h:commandLink action="index">Eliminar Usuario</h:commandLink> 
+            <br/>
+            <h:commandLink action="register-user">Registar Usuario</h:commandLink> |
+            <h:commandLink action="update-user">Actualizar Usuario</h:commandLink> |
+            <h:commandLink action="delete-user">Eliminar Usuario</h:commandLink>   |
             <h:commandLink action="#{loginBeanController.logoutAction}">Cerrar Sesion</h:commandLink> 
         </h:form>
     </h:body>

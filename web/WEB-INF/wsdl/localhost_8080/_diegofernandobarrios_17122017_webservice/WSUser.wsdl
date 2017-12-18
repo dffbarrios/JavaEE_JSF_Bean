@@ -4,11 +4,11 @@
 <xsd:import namespace="http://webservice.services.hitss.com/" schemaLocation="http://localhost:8080/_diegofernandobarrios_17122017_webservice/WSUser?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="insertUser">
-<part name="parameters" element="tns:insertUser"/>
+<message name="listUser">
+<part name="parameters" element="tns:listUser"/>
 </message>
-<message name="insertUserResponse">
-<part name="parameters" element="tns:insertUserResponse"/>
+<message name="listUserResponse">
+<part name="parameters" element="tns:listUserResponse"/>
 </message>
 <message name="checkCredentials">
 <part name="parameters" element="tns:checkCredentials"/>
@@ -16,17 +16,17 @@
 <message name="checkCredentialsResponse">
 <part name="parameters" element="tns:checkCredentialsResponse"/>
 </message>
+<message name="insertUser">
+<part name="parameters" element="tns:insertUser"/>
+</message>
+<message name="insertUserResponse">
+<part name="parameters" element="tns:insertUserResponse"/>
+</message>
 <message name="deleteUser">
 <part name="parameters" element="tns:deleteUser"/>
 </message>
 <message name="deleteUserResponse">
 <part name="parameters" element="tns:deleteUserResponse"/>
-</message>
-<message name="listUser">
-<part name="parameters" element="tns:listUser"/>
-</message>
-<message name="listUserResponse">
-<part name="parameters" element="tns:listUserResponse"/>
 </message>
 <message name="listUsers">
 <part name="parameters" element="tns:listUsers"/>
@@ -41,21 +41,21 @@
 <part name="parameters" element="tns:updateUserResponse"/>
 </message>
 <portType name="WSUser">
-<operation name="insertUser">
-<input wsam:Action="http://webservice.services.hitss.com/WSUser/insertUserRequest" message="tns:insertUser"/>
-<output wsam:Action="http://webservice.services.hitss.com/WSUser/insertUserResponse" message="tns:insertUserResponse"/>
+<operation name="listUser">
+<input wsam:Action="http://webservice.services.hitss.com/WSUser/listUserRequest" message="tns:listUser"/>
+<output wsam:Action="http://webservice.services.hitss.com/WSUser/listUserResponse" message="tns:listUserResponse"/>
 </operation>
 <operation name="checkCredentials">
 <input wsam:Action="http://webservice.services.hitss.com/WSUser/checkCredentialsRequest" message="tns:checkCredentials"/>
 <output wsam:Action="http://webservice.services.hitss.com/WSUser/checkCredentialsResponse" message="tns:checkCredentialsResponse"/>
 </operation>
+<operation name="insertUser">
+<input wsam:Action="http://webservice.services.hitss.com/WSUser/insertUserRequest" message="tns:insertUser"/>
+<output wsam:Action="http://webservice.services.hitss.com/WSUser/insertUserResponse" message="tns:insertUserResponse"/>
+</operation>
 <operation name="deleteUser">
 <input wsam:Action="http://webservice.services.hitss.com/WSUser/deleteUserRequest" message="tns:deleteUser"/>
 <output wsam:Action="http://webservice.services.hitss.com/WSUser/deleteUserResponse" message="tns:deleteUserResponse"/>
-</operation>
-<operation name="listUser">
-<input wsam:Action="http://webservice.services.hitss.com/WSUser/listUserRequest" message="tns:listUser"/>
-<output wsam:Action="http://webservice.services.hitss.com/WSUser/listUserResponse" message="tns:listUserResponse"/>
 </operation>
 <operation name="listUsers">
 <input wsam:Action="http://webservice.services.hitss.com/WSUser/listUsersRequest" message="tns:listUsers"/>
@@ -68,7 +68,7 @@
 </portType>
 <binding name="WSUserPortBinding" type="tns:WSUser">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="insertUser">
+<operation name="listUser">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -86,7 +86,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="deleteUser">
+<operation name="insertUser">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -95,7 +95,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="listUser">
+<operation name="deleteUser">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
