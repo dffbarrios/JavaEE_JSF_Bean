@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+     <h:head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="X-UA-Conpatible" content="IE=edge" />
+        <h:outputStylesheet library="css" name="bootstrap.css"></h:outputStylesheet>
+        <title>Hitss</title>
+    </h:head>
+    <h:body>   
+        <h:form rendered="#{not empty loginBeanController.message}">
+           <span class="text-danger">
+               Message: #{loginBeanController.message}
+           </span>
+        <br/><br/>
+        <h:commandLink action="index">Regresar</h:commandLink>
+       </h:form>
+        <h:form rendered="#{not empty userBeanController.message}">
+            <span class="text-danger">
+               Message: #{userBeanController.message}
+           </span>
+            <h:commandLink action="register-user">Registar Usuario</h:commandLink> 
+            <h:commandLink action="index">Actualizar Usuario</h:commandLink> 
+            <h:commandLink action="index">Eliminar Usuario</h:commandLink> 
+            <h:commandLink action="#{loginBeanController.logoutAction}">Cerrar Sesion</h:commandLink> 
+        </h:form>
+    </h:body>
+</html>
+

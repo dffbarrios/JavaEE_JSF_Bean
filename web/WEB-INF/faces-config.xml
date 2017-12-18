@@ -12,6 +12,7 @@
       <base-name>labels</base-name>
       <var>label</var>
     </resource-bundle>
+    <message-bundle>jsf</message-bundle>
   </application>
   
 </faces-config>

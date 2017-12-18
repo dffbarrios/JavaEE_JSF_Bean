@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="X-UA-Conpatible" content="IE=edge" />
+        <h:outputStylesheet library="css" name="bootstrap.css"></h:outputStylesheet>
+        <title>Hitss</title>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-6 col-md-offset-3">
+                    <h:form id="formRegister" rendered="#{loginBean.loged}">
+                        <fieldset>
+                            <legend>Registro de Usuario</legend>
+                            <div class="form-group">
+                                <h:outputLabel for="name" value="#{label['registerForm.label.name']}" />
+                                <h:inputText id="name" class="form-control" required="true"
+                                             a:placeholder="#{label['registerForm.placeholder.name']}"
+                                             value="#{userBean.usrName}"/>
+                                <h:message class="text-danger" for="name"/>                                
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel for="lastname" value="#{label['registerForm.label.lastname']}" />
+                                <h:inputText id="lastname" class="form-control" required="true"
+                                             a:placeholder="#{label['registerForm.placeholder.lastname']}"
+                                             value="#{userBean.usrLastname}"/>
+                                <h:message class="text-danger" for="lastname"/>   
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel for="username" value="#{label['registerForm.label.username']}" />
+                                <h:inputText id="username" class="form-control" required="true"
+                                             a:placeholder="#{label['registerForm.label.username']}"
+                                             value="#{userBean.usrUsername}"/>
+                                <h:message class="text-danger" for="username"/>   
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel for="password" value="#{label['registerForm.label.password']}" />
+                                <h:inputText id="password" class="form-control" required="true"
+                                             a:placeholder="#{label['registerForm.placeholder.password']}"
+                                             value="#{userBean.usrPassword}"/>
+                                <h:message class="text-danger" for="password"/>   
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel for="status" value="#{label['registerForm.label.status']}"/>
+                                <h:selectOneMenu id="status" class="form-control" value="#{userBean.usrEtaid}">
+                                    <f:selectItem itemValue="0" itemLabel="Inactivo"/>
+                                    <f:selectItem itemValue="1" itemLabel="Activo"/>
+                                </h:selectOneMenu>
+                            </div>
+                            <div class="form-group">
+                                <h:commandButton class="btn btn-primary"
+                                    action="#{userBeanController.insertUser}"
+                                    value="#{label['registerForm.label.register']}"/>
+                            </div>                                
+                        </fieldset>
+                        <p class="text-danger">
+                           Sesion Iniciada por: #{loginBean.username})
+                           <h:commandLink action="#{loginBeanController.logoutAction}">
+                               <strong> Cerrar sesión </strong>
+                           </h:commandLink>
+                        </p>
+                    </h:form>
+                </div>
+            </div>            
+        </div>
+    </h:body>
+</html>
+

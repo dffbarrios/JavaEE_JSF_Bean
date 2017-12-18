@@ -1,20 +1,23 @@
 package com.hitss.beans.model;
+import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.enterprise.context.SessionScoped;
-import java.io.Serializable;
 
-/**** @author Diego SNP3004EX */
+//Name: loginBean
 @ManagedBean
 @SessionScoped
-public class LoginBean implements Serializable {
+public class LoginBean 
+        implements Serializable {
     
-    private String username;
-    private String name;
-    private String lastname;
+    private String username = "";
+    private String password = "";
+    private String name = "";
+    private String lastname = "";
+    private boolean loged = false;
     
     public LoginBean() {}
-
     public LoginBean(String username, String name, String lastname) {
+        //this();
         this.username = username;
         this.name = name;
         this.lastname = lastname;
@@ -43,7 +46,22 @@ public class LoginBean implements Serializable {
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
-    
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isLoged() {
+        return loged;
+    }
+
+    public void setLoged(boolean loged) {
+        this.loged = loged;
+    }
     
     
 }
